@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include("header"); -%> 
+
 <body>
-    <% if (kindOfDay === "Saturday" || kindOfDay === "Sunday" ) { %> 
-        <h1 style="color: red"><%= kindOfDay %> to do list!</h1>
-    <% } else { %> 
-        <h1 style="color: blue"><%= kindOfDay %> to do list!</h1>
-    <% } %> 
+    <div class="box" id="heading">
+        <h1><%= listTitle %></h1>
+    </div>
+    
+    <div class="box">
+        <% for(var i = 0; i < yoTe.length; i++){ %> 
+            <div class="item">
+                <input type="checkbox">
+                <p><%= yoTe[i]  %></p>
+            </div>
+        <% } %> 
+
+        <form action="/" method="POST">
+            <input type="text" name="wtd" placeholder="what to do" autocomplete="off">
+            <button type="submit" name="list" value=<%= listTitle %> >+</button>
+        </form>
+    </div>
+
 </body>
-</html>
+
+<%- include("footer"); -%> 
